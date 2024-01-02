@@ -10,7 +10,7 @@
       >
       <!-- рендерится при десктоп-разрешении и обрабатывает наведение  -->
         <button
-          class="navigation-item__button"
+          class="navigation-item__button button"
           type="button"
           @mouseenter="openMenu"
         >
@@ -33,6 +33,7 @@
             </div>
           </div>
         </div>
+
       </div>
   
       <!-- если нет dropdown  -->
@@ -60,6 +61,10 @@
       type: String,
       default: '',
     },
+
+    menuItem: {
+      
+    }
   });
   const hasDropdown = computed(() => {
     return !!props.dropdown?.id;
@@ -112,64 +117,56 @@
     window.removeEventListener('click', closeMenu);
     window.removeEventListener('resize', updateCurrentWidth);
   });
+  onMounted(() => {
+    console.log('props.dropdown', props.dropdown?.dropdownItems.length);
+  
+  });
   </script>
   
   <style lang="postcss" scoped>
 
   .navigation-item {
-    transition: all 300ms ease-out;
-
     &__button {
-      font-family: 'Montserrat';
-      font-size: 16px;
       background: none;
+      font-family: 'Montserrat';
+      color: var(--background);
       border: none;
-      border-radius: 4px;
-      color: var(--grey);
-      padding: 2px 8px;
+    }
 
+    &__link {
+      color: var(--background);
+      padding: 4px 8px;
+      margin-bottom: 4px;
+      text-decoration: none;
 
       &:hover {
-        color: var(--violet-light);
+        color: var(--blue);
+        border-radius: 4px;
       }
+
+      &--dropdown {
+        color: var(--background);
+        padding: 4px 8px;
+        margin-bottom: 4px;
+        display: block;
+        text-decoration: none;
+
+        &:hover {
+          color: var(--blue);
+          background: white;
+          border-radius: 4px;
+        }
+      }
+      
+    }
+
+    &__dropdown {
+      padding: 8px 8px 0 8px;
+
     }
   }
 
-  .navigation-item__dropdown {
-    padding: 8px;
-  }
-  .navigation-item__link {
-    color: var(--grey);
-    text-decoration: none;
-    padding: 4px 8px;
-    margin-bottom: 4px;
-    font-size: 16px;
-  
-    &:hover {
-      color: var(--violet-light);
-      border-radius: 4px;
-    }
-  
-  }
-  .navigation-item__link--dropdown {
-    color: var(--white);
-    padding: 4px 8px;
-    margin-bottom: 4px;
-    display: block;
-    text-decoration: none;
-  
-    &:hover {
-      color: var(--black);
-      background: var(--white);
-      border-radius: 4px;
-    }
-  
-  }
-  .navigation-menu {
-    display: flex;
-  
-  
-  }
+
   
   
   </style>
