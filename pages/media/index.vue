@@ -1,62 +1,36 @@
 <template>
   <div>
-    <!-- <div>
-      vue3-audio-player
-    </div>
-    <AudioPlayer
-      :option="{
-        // src: '/audio/embers.mp3',
-        :audio-list="audioList.map(elm => elm.url)"
-
-        title: 'embers',
-      }"
-    /> -->
-
-    <hr />
-
-    <div>
-    <!-- {{ currentAudioName || audioList[0].name }}
-    <AudioPlayer
-      ref="audioPlayer"
-      :audio-list="audioList.map(elm => elm.url)"
-      :before-play="handleBeforePlay"
-      theme-color="#ff2929"
-    /> -->
+    <Header />
+    <MusicPlayer />
   </div>
-
-
-    <AVWaveform src='/audio/embers.mp3' />
-    <AVWaveform src='/audio/2_fast_lane_to_love.mp3' />
-
-  </div>
-  
 </template>
 <script setup>
-import { AVWaveform } from 'vue-audio-visual'
 
-// import AudioPlayer from 'vue3-audio-player'
+import MusicPlayer from '@/components/UI/MusicPlayer/MusicPlayer.vue'
+import Header from '@/components/UI/Header/Header.vue';
 
 
-
-// import AudioPlayer from '@liripeng/vue-audio-player'
-
-const currentAudioName = ref('');
-
-const audioList = ref([
+const playList = ref([
   {
-    name: 'audio1',
-    url: '/audio/embers.mp3'
+    // song of title
+    title: 'fast_lane_to_love',
+    // sound file
+    file: '/audio/2_fast_lane_to_love.mp3',
+    // howler instance
+    howl: null,
+    // song of author
+    author: 'Cherrystones',
+    // song of cover
+    // cover: cover1
   },
   {
-    name: '/audio/2_fast_lane_to_love.mp3',
-    url: '/audio/2_fast_lane_to_love.mp3'
-  }
-])
-
-const handleBeforePlay = (next) => {
-  currentAudioName.value = audioList[this.$refs.audioPlayer.currentPlayIndex].name;
-  next()
+    title: '/audio/embers.mp3',
+    file: '/audio/embers.mp3',
+    howl: null,
+    author: 'Cherrystones',
 }
+])
+const player = ref(null);
 
 </script>
 

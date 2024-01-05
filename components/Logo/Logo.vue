@@ -1,16 +1,16 @@
 <template>
-    <span>
-      <img 
+  <nuxt-link class="logo" to="/">
+    <img 
       class="logo"
       :width="width" 
       :height="height" 
       src="https://mksmooney.ru/wp-content/uploads/2022/12/logo-small-gray.png" 
       alt="" 
       >
-    </span>
-  </template>
-  
-  <script setup>
+  </nuxt-link>
+</template>
+
+<script setup>
   const props = defineProps({
     width: {
       type: String,
@@ -25,8 +25,8 @@
 
   </script>
   
-  <style lang="postcss">
-  .logo {
-  }
-  </style>
+<style lang="postcss">
+.logo {
+}
+</style>
   

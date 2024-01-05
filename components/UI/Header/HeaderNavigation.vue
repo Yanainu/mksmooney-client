@@ -23,8 +23,8 @@
 
         <div class="header-navigation__logo--mobile">
           <Logo 
-            width="50px"
-            height="50px"/>  
+            width="30px"
+            height="30px"/>  
         </div>
 
         <!-- button + menu opened -->
@@ -57,8 +57,8 @@
     </div>
     <div v-if="currentWidth > 600" class="header-navigation__logo">
       <Logo 
-        width="70px"
-        height="70px"/>  
+        width="40px"
+        height="40px"/>  
     </div>
 
   </div>
@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
 
   &__logo {
     position: absolute;
-    top: 134px;
+    top: 99px;
   }
 }
 
