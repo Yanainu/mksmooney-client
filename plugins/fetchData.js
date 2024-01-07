@@ -3,12 +3,12 @@ import { stringify } from 'qs';
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig();
 
-  console.log( `${config.public.apiBaseUrl}/api/`)
+  console.log( `${config.public.baseURL}/api/`)
 
   return {
     provide: {
       fetchData: (url, opts = {}) => useFetch(url, {
-        baseURL: `${config.public.apiBaseUrl}/api/`,
+        baseURL: `${config.public.baseURL}/api/`,
         initialCache: false,
         onRequest({ options }) {
           // нашел решение тут https://github.com/unjs/ohmyfetch/issues/117#issuecomment-1283494017
