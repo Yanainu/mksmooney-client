@@ -1,16 +1,18 @@
 <template>
-  <div class="main-layout">
-    <!-- <Header /> -->
-    Achievements 
-    <!-- <Achievements />  -->
+  <div class="achievements-layout">
+    <Header />
+    <Achievements /> 
   </div>
 </template>
+
 <script setup>
+import Header from '@/components/UI/Header/Header.vue';
+import Achievements from '@/components/UI/Achievements/Achievements.vue';
 
 </script>
 
 <style lang="postcss">
-.main-layout {
+.achievements-layout {
   height: 100vh;
   width: 100vw;
   }

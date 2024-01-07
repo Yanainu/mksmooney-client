@@ -4,11 +4,10 @@
     <MusicPlayer />
   </div>
 </template>
-<script setup>
 
+<script setup>
 import MusicPlayer from '@/components/UI/MusicPlayer/MusicPlayer.vue'
 import Header from '@/components/UI/Header/Header.vue';
-
 
 const playList = ref([
   {
