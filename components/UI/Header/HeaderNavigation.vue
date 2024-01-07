@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-
+    currentWidth {{ currentWidth }}
     <div 
       v-if="currentWidth <= 600" 
       class="header-navigation__mobile">

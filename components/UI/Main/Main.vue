@@ -4,11 +4,16 @@
 
     <!-- фото  -->
     <div class="main__photo">
-      <NuxtPicture 
+      <!-- <NuxtPicture 
         :imgAttrs="{ 
           class:'main__photo-img', 
           style: 'width: 50vw'}"
-          src="/img/photo1.JPG" />
+          src="/img/photo1.JPG" /> -->
+
+      <NuxtImg 
+        src="/img/photo1.JPG"
+        sizes="50vw sm:50vw md:400px"
+        />
     </div>
 
     <div class="main__info">

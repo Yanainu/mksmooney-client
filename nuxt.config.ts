@@ -25,4 +25,11 @@ export default defineNuxtConfig({
     }
   },
 
+  // для картинок на netlify
+  // image: {
+  //   provider: 'netlify',
+  //   netlify: {
+  //     baseImgUrl: process.env.IMAGES_URL
+  //   }
+  // }
 })
