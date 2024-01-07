@@ -5,6 +5,12 @@ export default defineNuxtConfig({
     'assets/main.postcss',
   ],
 
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL,
+    },
+  },
+
   modules: [
     'nuxt-icons', 
     '@nuxtjs/google-fonts',

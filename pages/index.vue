@@ -1,7 +1,6 @@
 <template>
     <div class="main-layout">
       <Header />
-
       <Main /> 
     </div>
   </template>
@@ -10,6 +9,27 @@
 import Header from '@/components/UI/Header/Header.vue';
 import Main from '@/components/UI/Main/Main.vue';
 
+//мой варик
+// import useMyFetch from '@/composables/useMyFetch';
+
+// const result  = await useMyFetch('main-page', { 
+//   // method: "POST",
+//   // body: data,
+// })
+// console.log('res', result)
+
+
+// пашин варик
+const { $fetchData } = useNuxtApp();
+
+const { data } = await $fetchData('main-page', {
+  params: {
+    populate: 'deep',
+  },
+});
+
+const testField = data?.value?.data?.attributes?.testField;
+console.log('main', testField)
 </script>
 
 <style lang="postcss">
