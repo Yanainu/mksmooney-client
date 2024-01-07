@@ -26,7 +26,7 @@
               rel="noopener noreferrer"
               target="_blank"
             >
-              {{ infoItem.title }}111
+              {{ infoItem.title }}
             </a>
             <span> ({{ infoItem.additionalTitle }})</span>
           </span>
