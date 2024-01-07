@@ -24,12 +24,4 @@ export default defineNuxtConfig({
       "postcss-custom-media": {}
     }
   },
-
-  // для картинок на netlify
-  // image: {
-  //   provider: 'netlify',
-  //   netlify: {
-  //     baseImgUrl: process.env.IMAGES_URL
-  //   }
-  // }
 })
