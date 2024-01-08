@@ -16,7 +16,6 @@
         />
       </div>
     </div>
-    currentWidth {{ currentWidth }}
     <div 
       v-if="currentWidth <= 600" 
       class="header-navigation__mobile">
@@ -162,12 +161,12 @@ onBeforeUnmount(() => {
   align-items: center;
 
   &__button {
-    background: var(--background);
+    background: transparent;
     border: none;
     border-radius: 4px;
     padding: none;
     cursor: pointer;
-    transform: scale(1.5);
+    /* transform: scale(1.5); */
   }
 
   &__desktop {
@@ -184,7 +183,8 @@ onBeforeUnmount(() => {
 
   &__logo {
     position: absolute;
-    top: 99px;
+    /* top: 55px; */
+    left: 30px;
   }
 }
 

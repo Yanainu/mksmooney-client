@@ -4,6 +4,8 @@
 
     <!-- фото  -->
     <div class="main__photo">
+
+      <!-- эти компоненты не дружат с деплоем на нетлифай -->
       <!-- <NuxtPicture 
         :imgAttrs="{ 
           class:'main__photo-img', 
@@ -110,6 +112,10 @@ const descriptionBlocks = [
   display: flex;
   background: var(--black);
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+
   &__info {
     display: flex;
     flex-direction: column; 
@@ -117,9 +123,21 @@ const descriptionBlocks = [
     color: var(--grey2);
     padding: 20px;
     font-size: 16px;
+    min-width: 50%;
+
+    /* @media (max-width: 600px) {
+      position: absolute;
+      top: 55%;
+      background: black;
+    } */
 
     &-title {
       margin-top: 60px;
+
+      @media (max-width: 600px) {
+        margin-top: 0;
+        text-align: center;
+      }
     }
   }
 }

@@ -2,13 +2,15 @@
     <div class="main-layout">
       <Header />
       <Main /> 
+
+      <Footer />
     </div>
   </template>
 <script setup>
 
 import Header from '@/components/UI/Header/Header.vue';
 import Main from '@/components/UI/Main/Main.vue';
-
+import Footer from '@/components/UI/Footer/Footer.vue';
 //мой варик
 // import useMyFetch from '@/composables/useMyFetch';
 

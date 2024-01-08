@@ -38,5 +38,9 @@ const headerDataMenuItemsMock = [
   padding: 20px;
   height: 150px;
   background: var(--black);
+
+  @media (max-width: 600px) {
+    height: fit-content;
+  }
 }
 </style>

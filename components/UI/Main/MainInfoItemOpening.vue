@@ -95,7 +95,7 @@ function toggleMenu() {
 
   &__link {
     text-decoration: none;
-    color: var(--violet-light);
+    color: var(--wine-light);
     font-size: 16px;
     font-weight: 600;
   }

@@ -1,22 +1,28 @@
 <template>
-  <div class="achievements-layout">
+  <div class="fateinc">
     <Header />
-    <Achievements /> 
-    <Footer /> 
 
+      <div class="main">
+        fateinc page
+      </div>
+    <Footer />
   </div>
 </template>
-
 <script setup>
+
 import Header from '@/components/UI/Header/Header.vue';
-import Achievements from '@/components/UI/Achievements/Achievements.vue';
 import Footer from '@/components/UI/Footer/Footer.vue';
 
 </script>
 
 <style lang="postcss">
-.achievements-layout {
+.fateinc {
   height: 100vh;
-  width: 100vw;
-  }
+}
+
+.main {
+  height: 100%;
+  text-align: center;
+  font-size: 20px;
+}
 </style>

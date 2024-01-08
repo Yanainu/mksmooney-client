@@ -5,8 +5,18 @@
         Достижения
       </div> -->
 
-      <div class="achievements__description description">
+      <div 
+        v-if="currentWidth <= 600" >
+        <img  
+          class="img"
+          :style="{
+            width: '100%'
+          }"
+          src="/img/photo2.JPG?url" 
+          alt="#" />
+      </div>
 
+      <div class="achievements__description description">
         <div 
           v-for="block in achievementsBlocks"
           :key="block.title"
@@ -66,9 +76,29 @@ const achievementsBlocks = [
   },
 ]
 
+// отслеживание ширины окна
+const currentWidth = ref(0);
+
+function updateCurrentWidth() {
+  currentWidth.value = window.innerWidth;
+}
+
+if (process.client) {
+  // window.addEventListener('click', closeMenu);// closeMenu лежит не тут
+  updateCurrentWidth();
+  window.addEventListener('resize', updateCurrentWidth);
+}
+
+onBeforeUnmount(() => {
+  // window.removeEventListener('click', closeMenu);
+  window.removeEventListener('resize', updateCurrentWidth);
+});
 </script>
 
 <style lang="postcss" scoped>
+.img {
+  
+}
 .achievements {
   height: 100vh;
   
@@ -76,11 +106,20 @@ const achievementsBlocks = [
   background-size: cover;
   background-position: center;
   color: var(--grey);
-
   padding: 30px;
+
+  @media (max-width: 600px) {
+    background: black;
+    height: auto;
+  }
 
   &__description {
     padding: 20px 0;
+
+    @media (max-width: 600px) {
+      /* margin-top: 100%; */
+    }
+
   }
 }
 

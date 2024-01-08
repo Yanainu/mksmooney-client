@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
 
 <template>
-    <div>
+    <div class="nav-item-mobile">
       <!-- если предполагается dropdown  -->
       <div
         v-if="hasDropdown"
@@ -13,6 +13,7 @@
           class="navigation-item__button button"
           type="button"
           @mouseenter="openMenu"
+          @click="toggleMenu"
         >
           {{ dropdown?.title }}
         </button>
@@ -125,22 +126,41 @@
   
   <style lang="postcss" scoped>
 
+  .nav-item-mobile {
+    transition: all 500ms ease-out;
+    padding: 8px 0;
+    &:hover {
+      background: white;
+      color: var(--violet)
+    }
+
+  }
+
   .navigation-item {
+
     &__button {
       background: none;
       font-family: 'Montserrat';
       color: var(--background);
       border: none;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     &__link {
+      display: block;
       color: var(--background);
       padding: 4px 8px;
-      margin-bottom: 4px;
+      /* margin-bottom: 8px; */
       text-decoration: none;
+      width: 100%;
+
+      /* border: 1px solid red; */
+
 
       &:hover {
         color: var(--blue);
+        background: white;
         border-radius: 4px;
       }
 
