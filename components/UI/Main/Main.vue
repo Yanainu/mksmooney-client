@@ -10,10 +10,17 @@
           style: 'width: 50vw'}"
           src="/img/photo1.JPG" /> -->
 
-      <NuxtImg 
+      <!-- <NuxtImg 
         src="/img/photo1.JPG"
         sizes="50vw sm:50vw md:400px"
-        />
+        /> -->
+
+        <img  
+          :style="{
+            width: '100%'
+          }"
+          src="/img/photo1.JPG?url" 
+          alt="#" />
     </div>
 
     <div class="main__info">
