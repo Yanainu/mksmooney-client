@@ -76,23 +76,6 @@ const achievementsBlocks = [
   },
 ]
 
-// отслеживание ширины окна
-const currentWidth = ref(0);
-
-function updateCurrentWidth() {
-  currentWidth.value = window.innerWidth;
-}
-
-if (process.client) {
-  // window.addEventListener('click', closeMenu);// closeMenu лежит не тут
-  updateCurrentWidth();
-  window.addEventListener('resize', updateCurrentWidth);
-}
-
-onBeforeUnmount(() => {
-  // window.removeEventListener('click', closeMenu);
-  window.removeEventListener('resize', updateCurrentWidth);
-});
 </script>
 
 <style lang="postcss" scoped>

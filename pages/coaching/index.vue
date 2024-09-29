@@ -1,17 +1,17 @@
 <template>
   <div class="coaching">
-    <Header />
+    <!-- <Header /> -->
 
       <div class="main">
         coaching page
       </div>
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 <script setup>
 
-import Header from '@/components/UI/Header/Header.vue';
-import Footer from '@/components/UI/Footer/Footer.vue';
+// import Header from '@/components/UI/Header/Header.vue';
+// import Footer from '@/components/UI/Footer/Footer.vue';
 
 </script>
 

@@ -1,16 +1,18 @@
 <template>
   <div>
-    <Header />
+    <!-- <Header />
     <MusicPlayer />
-    <Footer />
+    <Footer /> -->
+
+    media page
 
   </div>
 </template>
 
 <script setup>
-import MusicPlayer from '@/components/UI/MusicPlayer/MusicPlayer.vue'
-import Header from '@/components/UI/Header/Header.vue';
-import Footer from '@/components/UI/Footer/Footer.vue';
+// import MusicPlayer from '@/components/UI/MusicPlayer/MusicPlayer.vue'
+// import Header from '@/components/UI/Header/Header.vue';
+// import Footer from '@/components/UI/Footer/Footer.vue';
 
 const playList = ref([
   {

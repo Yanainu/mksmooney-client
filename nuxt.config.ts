@@ -9,19 +9,22 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseURL: process.env.NUXT_PUBLIC_API_BASE_URL,
+
       // buildAssetsDir: 'public',
     },
   },
 
   modules: [
-    'nuxt-icons', 
+    'nuxt-icons',
     '@nuxtjs/google-fonts',
-    '@nuxt/image'
+    '@nuxt/image',
+    'nuxt-icons',
+    '@pinia/nuxt',
   ],
   postcss: {
     plugins: {
       'postcss-nested': {},
-      "postcss-custom-media": {}
+      "postcss-custom-media": {},
     }
   },
 })

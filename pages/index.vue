@@ -1,42 +1,39 @@
 <template>
-    <div class="main-layout">
-      <Header />
-      <Main /> 
+  <PageTemplate>
+    <template #pageContent>
+      <VocalAboutSection />
+      
+    </template>
+  </PageTemplate>
+</template>
 
-      <Footer />
-    </div>
-  </template>
 <script setup>
+import { 
+  toRefs,
+} from 'vue';
+import { storeToRefs } from 'pinia';
+import { CommonComponents } from '@/components';
+import { Models } from '~/composables';
+import { VocalPageComponents } from '@/components';
 
-import Header from '@/components/UI/Header/Header.vue';
-import Main from '@/components/UI/Main/Main.vue';
-import Footer from '@/components/UI/Footer/Footer.vue';
-//мой варик
-// import useMyFetch from '@/composables/useMyFetch';
+// Components
+const { PageTemplate } = CommonComponents;
+const { VocalAboutSection } = VocalPageComponents;
 
-// const result  = await useMyFetch('main-page', { 
-//   // method: "POST",
-//   // body: data,
-// })
-// console.log('res', result)
+const PageModel = Models.VocalPageStore();
+const { 
+  vocalPageData,
+} = storeToRefs(PageModel);
 
 
-// пашин варик
-const { $fetchData } = useNuxtApp();
 
-const { data } = await $fetchData('main-page', {
-  params: {
-    populate: 'deep',
-  },
-});
+// const config = useRuntimeConfig();
+// const backgroundUrl = computed(() => `url('${config.public.baseURL}${vocalPageData?.VocalAboutMe}')`);
 
-const testField = data?.value?.data?.attributes?.testField;
-console.log('main', testField)
 </script>
 
 <style lang="postcss">
-.main-layout {
-  height: 100vh;
-  width: 100vw;
-}
+
+
+
 </style>
