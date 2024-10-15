@@ -10,6 +10,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 // import MusicPlayer from '@/components/UI/MusicPlayer/MusicPlayer.vue'
 // import Header from '@/components/UI/Header/Header.vue';
 // import Footer from '@/components/UI/Footer/Footer.vue';

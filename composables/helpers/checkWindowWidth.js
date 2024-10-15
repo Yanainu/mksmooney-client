@@ -1,3 +1,8 @@
+import { 
+  ref,
+  onBeforeUnmount
+} from 'vue';
+
 export default function checkWindowWidth() {
   const currentWidth = ref(0);
 
@@ -5,7 +10,7 @@ export default function checkWindowWidth() {
     currentWidth.value = window.innerWidth;
   }
 
-  if (process.client) {
+  if (import.meta.client) {
     updateCurrentWidth();
     window.addEventListener('resize', updateCurrentWidth);
   }

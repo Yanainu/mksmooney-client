@@ -1,7 +1,8 @@
+import { computed } from 'vue';
 
 export default function checkRenderProcess() {
   const isBrowser = computed(() => {
-    if (process.browser) {
+    if (import.meta.browser) {
   
       return true;
     } else {
@@ -10,7 +11,7 @@ export default function checkRenderProcess() {
   });
 
   const isClient = computed(() => {
-    if (process.client) {  
+    if (import.meta.client) {  
       return true;
     } else {
       return false;
@@ -22,6 +23,3 @@ export default function checkRenderProcess() {
     isClient
   };
 }
-
-
-

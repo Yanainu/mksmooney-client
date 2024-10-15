@@ -2,29 +2,27 @@
 <template>
   <div class="section about-section">
     <div class="about-section__left-content left-content">
-
       <div class="left-content__photo">
-        <ImageWrapper >
-          <img  
-            :style="{
-              width: '100%'
-            }"
-            :src="sectionData?.leftPhotoUrl"
-            alt="#" />
-        </ImageWrapper>
+        <ContentImage 
+          width="100%"
+          class="photo-left"
+          :src="sectionData?.leftPhotoUrl"
+        />
       </div>
 
       <ColorBgSpot 
         class="left-content__spot"
         :color="vocalSecondary"
-        :shadowSize="'150px'"
+        :shadow-size="'150px'"
       />
 
       <div class="left-content__main left-main">
         <div class="left-main__text">
           <div class="left-main__text--is-primary primary">
             {{  sectionData?.data?.title }} 
-            <span class="primary__dark">{{ sectionData?.data?.titleMainWord }}</span>
+            <span class="primary__dark">
+              {{ sectionData?.data?.titleMainWord }}
+            </span>
           </div>
 
           <div class="left-main__text--is-secondary secondary">
@@ -48,40 +46,40 @@
           />
         </div>
       </div>
-
     </div>
         
-    <div class="about-section__right about-right">
-      <ImageWrapper>
-        <img  
-          :style="{
-            width: '100%'
-          }"
-          :src="sectionData?.rightPhotoUrl" 
-          alt="#" />
-      </ImageWrapper>
-
-      <ColorBgSpot 
-        class="about-right__spot--primary"
-        :shadowSize="'200px'"
-        :color="vocalPrimary"
-      />
-
-      <ColorBgSpot 
-        class="about-right__spot--secondary"
-        :sizshadowSizee="'400px'"
-        :color="vocalSecondary"
+    <div 
+      v-if="currentWidth >= 730"
+      class="about-section__right about-right">
+      <ContentImage 
+        class="about-right__photo"
+        :src="sectionData?.rightPhotoUrl"
       />
     </div> 
+    
+    <ColorBgSpot 
+      class="about-right__spot--primary"
+      :shadow-size="'200px'"
+      :color="vocalPrimary"
+    />
+
+    <ColorBgSpot 
+      class="about-right__spot--secondary"
+      :sizshadow-sizee="'400px'"
+      :color="vocalSecondary"
+    />
   </div>
 </template>
 
 <script setup>
+import { toRefs } from 'vue';
+
 import { CommonComponents } from '~/components/UI';
+import { Stores, Helpers } from '~/composables';
 
 const { 
   ButtonLink,
-  ImageWrapper,
+  ContentImage,
   ColorBgSpot
 } = CommonComponents;
 
@@ -98,6 +96,9 @@ const {
   vocalSecondary
 } = toRefs(ColorsStore);
 
+const WindowWidthComposable = Helpers.checkWindowWidth();
+const { currentWidth } = toRefs(WindowWidthComposable);
+
 </script>
   
 <style lang="postcss" scoped>
@@ -110,21 +111,25 @@ const {
 
   &__left-content {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     gap: 17px;
-
-
-    & img {
-      width: 30%;
-    }
   }
 }
 
 .about-right {
-  height: fit-content;
+  height: 100%;
+  width: 36%;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &__photo {
+
+  }
 
   &__spot {
     &--primary {
@@ -152,10 +157,8 @@ const {
   }
 
   &__photo {
-    width: 120px;
-    border-radius: 15px;
-    overflow: hidden;
-    height: fit-content;
+    min-width: 120px;
+    width: 11%;
   }
 }
 
@@ -197,7 +200,6 @@ const {
         }
       }
     }
-
   }
 }
 </style>

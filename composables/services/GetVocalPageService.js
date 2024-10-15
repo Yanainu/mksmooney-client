@@ -17,7 +17,6 @@ const GetVocalPageService = () => {
       return null;
     } finally {
       isLoading.value = false;
-      return null;
     }
   };
 

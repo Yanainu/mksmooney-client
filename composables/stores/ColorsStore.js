@@ -1,8 +1,10 @@
 import { defineStore } from 'pinia';
+
 import {
   ref,
-  toRefs,
+  computed
 } from 'vue';
+
 import {
   GetColorsService
 } from '../services';
@@ -13,10 +15,8 @@ const ColorsStore = defineStore('Colors', () => {
 
   const ColorsService = GetColorsService();
   const { fetchColors } = ColorsService;
-  const { colorsData } = toRefs(ColorsService);
 
   const formatColors = (fetchResult) => {
-    console.log("fetchResult", fetchResult);
 
     let pagesList = [];
     fetchResult.forEach(item => {
@@ -38,21 +38,7 @@ const ColorsStore = defineStore('Colors', () => {
       })
       
     })
-
-    // console.log('formattedColors', formattedColors.value)
-
-    // {
-    //   vocal: {
-    //     primary: '',
-    //     secondary: '',
-    //     text: '',
-    //   },
-    //   coaching: {
-    //     ...
-    //   }
-    // }
   }
-
 
   const getColors = async () => {
     const result = await fetchColors();

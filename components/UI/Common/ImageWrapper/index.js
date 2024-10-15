@@ -1,5 +1,5 @@
-import ImageWrapper from './ImageWrapper.vue';
+import ContentImage from './ContentImage.vue';
 
 export { 
-  ImageWrapper,
-}
+  ContentImage
+};

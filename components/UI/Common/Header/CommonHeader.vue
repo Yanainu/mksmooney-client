@@ -1,23 +1,21 @@
 <template>
   <div class="header">
     <NavigationDesktop
-      class="header__navigation--desktop"
       v-if="currentWidth > 600"
+      class="header__navigation--desktop"
       location="header"
     />
 
     <NavigationMobile 
-      class="header__navigation--mobile"
       v-else
+      class="header__navigation--mobile"
       location="header"
     />
   </div>
 </template>
 
 <script setup>
-import { 
-  ref, 
-} from 'vue';
+import { toRefs } from 'vue';
 import { 
   Helpers,
 } from '~/composables';
@@ -29,7 +27,7 @@ const {
   NavigationMobile
  } = CommonComponents;
 
-const props = defineProps({
+defineProps({
   currentPage: {
     type: String,
     default: 'vocal',
@@ -46,5 +44,13 @@ const { currentWidth } = toRefs(WindowWidthComposable);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &__navigation {
+    &--desktop {
+      @media (max-width: 730px) {
+        transform: scale(0.9);
+      }
+    }
+  }
 }
 </style>

@@ -1,46 +1,45 @@
 <template>
   <div class="navigation">
-      <div class="navigation-icons">
-        <nuxt-icon 
-          class="navigation-icons--bg"
-          name="menu-back" 
-          />
+    <div class="navigation-icons">
+      <nuxt-icon 
+        class="navigation-icons--bg"
+        name="menu-back" 
+        />
 
-        <nuxt-icon 
-          class="navigation-icons--logo"
-          name="menu-logo" 
-          />
-      </div>
+      <nuxt-icon 
+        class="navigation-icons--logo"
+        name="menu-logo" 
+        />
+    </div>
 
-      <div class="navigation-links">
-        <div
-          class="navigation-links__item"
-          v-for="navigationItem in headerNavigationItems" 
-          :key="navigationItem?.id" >
+    <div class="navigation-links">
+      <div
+        v-for="navigationItem in headerNavigationItems"
+        :key="navigationItem?.id" 
+        class="navigation-links__item" >
 
-          <NavigationItem
-            :title="navigationItem?.title"
-            :dropdown="navigationItem?.dropdown"
-            :link="navigationItem?.link"
-          />
-        </div>        
-      </div>
+        <NavigationItem
+          :title="navigationItem?.title"
+          :dropdown="navigationItem?.dropdown"
+          :link="navigationItem?.link"
+        />
+      </div>        
+    </div>
   </div>
 </template>
 
 <script setup>
 import { 
-  ref, 
-  onBeforeUnmount, 
-  onMounted, 
-  computed 
+  computed,
+  toRefs
 } from 'vue';
+
 import { 
   Stores,
   Services,
-  Helpers
-} from '~/composables'
-import NavigationItem from './NavigationItem.vue'
+} from '~/composables';
+
+import NavigationItem from './NavigationItem.vue';
 
 const props = defineProps({
   currentPage: {
@@ -48,16 +47,6 @@ const props = defineProps({
     default: 'vocal',
   },
 });
-
-const WindowWidthComposable = Helpers.checkWindowWidth();
-const { currentWidth } = toRefs(WindowWidthComposable);
-
-const menuScale = computed(() => {
-  if (currentWidth.value < 900 && currentWidth.value > 600) {
-    return 0.7;
-  } 
-  return 1;
-})
 
 // fetch
 const HeaderNavigation = Services.HeaderNavigationService();
@@ -74,7 +63,6 @@ const headerNavigationItems = computed(() => {
 
 const ColorsStore = Stores.ColorsStore();
 const { 
-  Colors,
   formattedColors
 } = toRefs(ColorsStore);
 
@@ -92,12 +80,9 @@ const menuLogoColor = computed(() => {
   }
   return '#E2CD98';
 })
-
-
 </script>
   
 <style lang="postcss" scoped>
-
 .header {
   display: flex;
   justify-content: center;
@@ -143,18 +128,7 @@ const menuLogoColor = computed(() => {
       left: 61px;
       top: -20px;
       color: v-bind(menuLogoColor);
-
     }
   }
 }
-
-
-/* 
-  @media (max-width: 600px) {
-    height: fit-content;
-  } */
-
-
-
-
 </style>

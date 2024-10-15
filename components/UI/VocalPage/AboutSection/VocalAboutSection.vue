@@ -1,22 +1,25 @@
 <template>
   <div class="about-section">
     <AboutSectionDesktop 
-      class="about-section-mode--desktop"
       v-if="currentWidth > 600"
-      :sectionData="aboutSectionData"
+      class="about-section-mode--desktop"
+      :section-data="aboutSectionData"
     />
-<!-- 
+
     <AboutSectionMobile 
-      class="about-section-mode--mobile"
       v-else
-      :sectionData="aboutSectionData"
-    /> -->
+      class="about-section-mode--mobile"
+      :section-data="aboutSectionData"
+    />
   </div>
 </template>
 
 <script setup>
+import { toRefs } from 'vue';
+import { storeToRefs } from 'pinia';
 import { 
   Helpers,
+  Models
 } from '~/composables';
 
 import AboutSectionDesktop from './AboutSectionDesktop.vue';
@@ -29,7 +32,6 @@ const PageModel = Models.VocalPageStore();
 const { 
   aboutSectionData,
 } = storeToRefs(PageModel);
-
 </script>
   
 <style lang="postcss" scoped>

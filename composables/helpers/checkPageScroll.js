@@ -1,4 +1,7 @@
-import { ref } from 'vue';
+import { 
+  ref,
+  onBeforeUnmount 
+} from 'vue';
 
 export default function checkPageScroll() {
   const scrolled = ref(false);
@@ -11,7 +14,7 @@ export default function checkPageScroll() {
     }
   }
 
-  if (process.client) {
+  if (import.meta.client) {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
   }

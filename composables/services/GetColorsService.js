@@ -10,9 +10,7 @@ const GetColorsService = () => {
 
     try {
       const result = await FetchData('colors');
-      console.log('SERVICE colors result?.value?.data', result?.value?.data)
       colorsData.value = [...result.value.data];
-      console.log('colorsData.value', colorsData.value)
       return result;
     } catch (err) {
       console.error(err);
@@ -24,6 +22,7 @@ const GetColorsService = () => {
 
   return {
     fetchColors,
+    
     isLoading,
     colorsData,
   };

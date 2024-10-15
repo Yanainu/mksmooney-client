@@ -1,13 +1,11 @@
 <template>
   <div class="coaching">
-    <!-- <Header /> -->
-
-      <div class="main">
-        coaching page
-      </div>
-    <!-- <Footer /> -->
+    <div class="main">
+      coaching page
+    </div>
   </div>
 </template>
+
 <script setup>
 
 // import Header from '@/components/UI/Header/Header.vue';

@@ -5,21 +5,18 @@ export default defineNuxtConfig({
   css: [
     'assets/main.postcss',
   ],
-
   runtimeConfig: {
     public: {
       baseURL: process.env.NUXT_PUBLIC_API_BASE_URL,
-
-      // buildAssetsDir: 'public',
-    },
+    }
   },
-
   modules: [
     'nuxt-icons',
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-icons',
     '@pinia/nuxt',
+    "@nuxt/eslint"
   ],
   postcss: {
     plugins: {

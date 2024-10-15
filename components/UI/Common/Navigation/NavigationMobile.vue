@@ -1,69 +1,65 @@
 <template>
   <div class="navigation">
-      <div class="navigation-icons">
-        <nuxt-icon 
-          class="navigation-icons--bg"
-          name="menu-back--mobile" 
-          />
+    <div class="navigation-icons">
+      <nuxt-icon 
+        class="navigation-icons--bg"
+        name="menu-back--mobile" 
+        />
+
+      <nuxt-icon 
+        class="navigation-icons--logo"
+        name="menu-logo--mobile" 
+        />
+
+      <div class="navigation-icons--menu">
+        <nuxt-icon
+          v-if="!menuIsOpen" 
+          class="menu--closed"
+          name="menu-burger--closed"
+          @click="openMenu" 
+        />
 
         <nuxt-icon 
-          class="navigation-icons--logo"
-          name="menu-logo--mobile" 
-          />
-
-        <div 
-          class="navigation-icons--menu">
-
-          <nuxt-icon
-            v-if="!menuIsOpen" 
-            @click="openMenu"
-            class="menu--closed"
-            name="menu-burger--closed" 
-          />
-          <nuxt-icon 
-            v-if="menuIsOpen" 
-            @click="closeMenu"
-            class="menu--opened"
-            name="menu-burger--opened" 
-          />
-        </div>
-
-
-
+          v-if="menuIsOpen" 
+          class="menu--opened"
+          name="menu-burger--opened"
+          @click="closeMenu" 
+        />
       </div>
+    </div>
 
-      <div 
-        v-if="menuIsOpen"
-        class="navigation-links">
-        <div
-          class="navigation-links__item"
-          v-for="navigationItem in headerNavigationItems" 
-          :key="navigationItem?.id" >
+    <div 
+      v-if="menuIsOpen"
+      class="navigation-links">
 
-          <NavigationItem
-            :title="navigationItem?.title"
-            :dropdown="navigationItem?.dropdown"
-            :link="navigationItem?.link"
-          />
-        </div>        
-      </div>
+      <div
+        v-for="navigationItem in headerNavigationItems"
+        :key="navigationItem?.id" 
+        class="navigation-links__item" >
+
+        <NavigationItem
+          :title="navigationItem?.title"
+          :dropdown="navigationItem?.dropdown"
+          :link="navigationItem?.link"
+        />
+      </div>        
+    </div>
   </div>
 </template>
 
 <script setup>
 import { 
   ref, 
-  onBeforeUnmount, 
-  onMounted, 
+  toRefs,
   computed 
 } from 'vue';
+
 import { 
   Stores,
   Services,
-  Helpers
-} from '~/composables'
-import NavigationItem from './NavigationItem.vue'
+} from '~/composables';
 
+import NavigationItem from './NavigationItem.vue';
 
 const props = defineProps({
   currentPage: {
@@ -72,14 +68,11 @@ const props = defineProps({
   },
 });
 
-
-
 // fetch
 const HeaderNavigation = Services.HeaderNavigationService();
 const { 
   headerNavigationData,
 } = toRefs(HeaderNavigation)
-// const headerNavigationItems = headerNavigationData?.NavigationItem
 
 const headerNavigationItems = computed(() => {
   if (headerNavigationData.value) {
@@ -88,10 +81,8 @@ const headerNavigationItems = computed(() => {
   return [];
 })
 
-
 const ColorsStore = Stores.ColorsStore();
 const { 
-  Colors,
   formattedColors
 } = toRefs(ColorsStore);
 
@@ -109,49 +100,18 @@ const menuLogoColor = computed(() => {
   return '#E2CD98';
 })
 
-
-
-
-
-
 const menuIsOpen = ref(false)
 
 const openMenu = () => {
-  console.log('click')
   menuIsOpen.value = true;
 }
 
 const closeMenu = () => {
   menuIsOpen.value = false;
 }
-
-// отключение меню через 600мс после ухода мыши с него
-const timer = ref(null);
-
-function mouseMoveHandle() {
-  clearTimeout(timer.value);
-}
-
-function mouseLeaveHandle() {
-  clearTimeout(timer.value);
-  timer.value = setTimeout(() => {
-    menuIsOpen.value = false;
-  }, 5000);
-}
-
-// переключение видимости меню по клику (для мобильной версии)
-function toggleMenu() {
-  window.removeEventListener('click', closeMenu);
-  menuIsOpen.value = !menuIsOpen.value;
-}
-
-const WindowWidthComposable = Helpers.checkWindowWidth();
-const currentWidth = toRefs(WindowWidthComposable);
-
 </script>
   
 <style lang="postcss" scoped>
-
 .header {
   display: flex;
   justify-content: center;
@@ -211,24 +171,9 @@ const currentWidth = toRefs(WindowWidthComposable);
   }
 }
 
-/* .menu {
-  &--opened {
-    position: absolute;
-    top: 6px;
-  }
+.menu {
   &--closed {
-    position: absolute;
-    top: 3px;
+    margin-top: 3px;
   }
-} */
-
-
-/* 
-  @media (max-width: 600px) {
-    height: fit-content;
-  } */
-
-
-
-
+}
 </style>

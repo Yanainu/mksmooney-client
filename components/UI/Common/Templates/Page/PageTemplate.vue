@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="page__header">
-      <Header />
+      <CommonHeader />
     </div>
 
     <div class="page__content">
@@ -17,28 +17,31 @@
 <script setup>
 import { CommonComponents } from '@/components';
 
-// Components
 const { 
-  Header,
+  CommonHeader,
   Footer
  } = CommonComponents;
-// import Main from '@/components/UI/Main/Main.vue';
-// import Footer from '@/components/UI/Footer/Footer.vue';
-
 </script>
 
 <style lang="postcss">
 .page {
   height: 100vh;
-  /* width: 100vw; */
   padding: 40px 50px;
 
+  @media (max-width: 750px) {
+    padding: 30px;
+  }
+
   @media (max-width: 600px) {
-    padding: 20px 20px;
+    padding: 20px;
   }
 
   &__header {
     margin-bottom: 70px;
+
+    @media (max-width: 600px) {
+      margin-bottom: 50px;
+    }
   }
 }
 </style>

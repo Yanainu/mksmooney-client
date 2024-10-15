@@ -1,5 +1,3 @@
-import Header from './Header.vue';
+import CommonHeader from './CommonHeader.vue';
 
-export { 
-  Header,
-}
+export { CommonHeader };

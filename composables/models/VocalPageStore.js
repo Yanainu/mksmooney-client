@@ -1,12 +1,9 @@
-
-
-
 import { defineStore } from 'pinia';
 
 import {
   ref,
   toRefs,
-  watch
+  computed
 } from 'vue';
 
 import {

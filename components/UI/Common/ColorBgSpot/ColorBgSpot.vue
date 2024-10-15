@@ -1,8 +1,7 @@
 <template>
   <div 
     class="spot"
-    >
-  </div>
+    />
 </template>
 
 <script setup>
@@ -31,9 +30,7 @@ const props = defineProps({
   background: v-bind(color);
   box-shadow: 0px 0px 500px v-bind(shadowSize) v-bind(color);
   z-index: -1;
-
   width: v-bind(containerWidth);
   height: v-bind(containerHeight);
-
 }
 </style>
