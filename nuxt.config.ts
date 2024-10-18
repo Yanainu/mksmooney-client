@@ -10,6 +10,9 @@ export default defineNuxtConfig({
       baseURL: process.env.NUXT_PUBLIC_API_BASE_URL,
     }
   },
+  imports: {
+    autoImport: true,
+  },
   modules: [
     'nuxt-icons',
     '@nuxtjs/google-fonts',

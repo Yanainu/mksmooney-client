@@ -9,7 +9,7 @@
       <nuxt-icon 
         class="navigation-icons--logo"
         name="menu-logo--mobile" 
-        />
+      />
 
       <div class="navigation-icons--menu">
         <nuxt-icon

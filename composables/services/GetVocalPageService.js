@@ -11,6 +11,7 @@ const GetVocalPageService = () => {
     try {
       const result = await FetchData('vocal-page');
       vocalPageData.value = result?.value?.data?.attributes;
+      console.log('vocalPageData.value', vocalPageData.value);
       return result;
     } catch (err) {
       console.error(err);

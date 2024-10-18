@@ -17,6 +17,7 @@ const VocalPageStore = defineStore('VocalPage', () => {
   const { fetchVocalPage } = VocalPageService;
   fetchVocalPage();
   const { vocalPageData } = toRefs(VocalPageService);
+  console.log('vocalPageData', vocalPageData.value)
 
   const config = useRuntimeConfig();
 
@@ -34,10 +35,15 @@ const VocalPageStore = defineStore('VocalPage', () => {
     }
   });
 
+  const educationSectionData = computed(() => {
+    return vocalPageData?.value?.VocalEducation;
+  }); 
+
   return {
     vocalPageData,
 
     aboutSectionData,
+    educationSectionData,
 
     leftPhotoUrl,
     leftPhotoUrlFormatted,
