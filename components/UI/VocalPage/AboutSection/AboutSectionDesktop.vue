@@ -6,7 +6,7 @@
         <ContentImage 
           width="100%"
           class="photo-left"
-          :src="sectionData?.leftPhotoUrl"
+          :src="getFormattedUrl(sectionData?.data?.leftPhoto)"
         />
       </div>
 
@@ -53,7 +53,7 @@
       class="about-section__right about-right">
       <ContentImage 
         class="about-right__photo"
-        :src="sectionData?.rightPhotoUrl"
+        :src="getFormattedUrl(sectionData?.data?.rightPhoto)"
       />
     </div> 
     
@@ -83,7 +83,7 @@ const {
   ColorBgSpot
 } = CommonComponents;
 
-const props = defineProps({
+defineProps({
   sectionData: {
     type: Object,
     default: () =>({}),
@@ -98,6 +98,9 @@ const {
 
 const WindowWidthComposable = Helpers.checkWindowWidth();
 const { currentWidth } = toRefs(WindowWidthComposable);
+
+const PhotoURLComposable = Helpers.getPhotoUrl();
+const { getFormattedUrl } = PhotoURLComposable;
 
 </script>
   

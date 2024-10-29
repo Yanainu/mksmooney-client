@@ -5,7 +5,7 @@
       <ContentImage 
         width="100%"
         class="photo-left"
-        :src="sectionData?.leftPhotoUrl"
+        :src="getFormattedUrl(sectionData?.data?.leftPhoto)"
       />
 
       <!-- <ColorBgSpot 
@@ -28,7 +28,7 @@
       <ContentImage 
         width="100%"
         class="photo-left"
-        :src="sectionData?.rightPhotoUrl"
+        :src="getFormattedUrl(sectionData?.data?.rightPhoto)"
       />
     </div>
 
@@ -57,11 +57,11 @@
 <script setup>
 import { toRefs } from 'vue';
 import { CommonComponents } from '~/components/UI';
-import { Stores } from '~/composables';
+import { Stores, Helpers } from '~/composables';
 
 const { 
   ButtonLink,
-  ColorBgSpot,
+  // ColorBgSpot,
   ContentImage
 } = CommonComponents;
 
@@ -75,8 +75,11 @@ const props = defineProps({
 const ColorsStore = Stores.ColorsStore();
 const { 
   vocalPrimary,
-  vocalSecondary
+  // vocalSecondary
 } = toRefs(ColorsStore);
+
+const PhotoURLComposable = Helpers.getPhotoUrl();
+const { getFormattedUrl } = PhotoURLComposable;
 
 </script>
   

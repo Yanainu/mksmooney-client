@@ -50,10 +50,14 @@ const {
   top: 0;
   display: inline-block;
   width: 1px;
-  height: 260px;
+  height: 150%;
   margin: 0 13.8px;
   border-radius: 9999px;
   background-color: v-bind(vocalPrimary);
+
+  @media (max-width: 1000px) {
+    height: 120%;
+  }
 }
 
 .arrow::before,

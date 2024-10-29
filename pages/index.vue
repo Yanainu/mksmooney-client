@@ -9,43 +9,48 @@
         :data="educationSectionData"
       />
 
+      <VocalWorkPlacesSection
+        :data="workPlacesSectionData"
+      />
+
     </template>
   </PageTemplate>
 </template>
 
 <script setup>
 import { storeToRefs } from 'pinia';
-import { toRefs } from 'vue';
+// import { toRefs } from 'vue';
 
 import { 
   CommonComponents, 
-  VocalPageComponents 
+  VocalPageComponents
 } from '@/components';
 
 import { 
   Models, 
-  Stores 
+  // Stores 
 } from '~/composables';
 
-// Components
 const { PageTemplate } = CommonComponents;
 
 const { 
   VocalAboutSection,
-  VocalEducationSection
+  VocalEducationSection,
+  VocalWorkPlacesSection
 } = VocalPageComponents;
 
 const PageModel = Models.VocalPageStore();
 const { 
   aboutSectionData,
-  educationSectionData
+  educationSectionData,
+  workPlacesSectionData
 } = storeToRefs(PageModel);
 
-const ColorsStore = Stores.ColorsStore();
-const { 
-  vocalPrimary,
-  vocalSecondary
-} = toRefs(ColorsStore);
+// const ColorsStore = Stores.ColorsStore();
+// const { 
+//   vocalPrimary,
+//   vocalSecondary
+// } = toRefs(ColorsStore);
 
 </script>
 

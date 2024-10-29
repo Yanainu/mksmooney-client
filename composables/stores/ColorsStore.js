@@ -56,13 +56,27 @@ const ColorsStore = defineStore('Colors', () => {
     return formattedColors?.value?.vocal?.secondary;
   })
 
+  const vocalLight = computed(() => {
+    return formattedColors?.value?.vocal?.light;
+  })
 
+  const fateIncPrimary = computed(() => {
+    return formattedColors?.value?.fateInc?.primary;
+  })
+
+  const fateIncSecondary = computed(() => {
+    return formattedColors?.value?.fateInc?.secondary;
+  })
   return {
     Colors,
     formattedColors,
 
     vocalPrimary,
-    vocalSecondary
+    vocalSecondary,
+    vocalLight,
+
+    fateIncPrimary,
+    fateIncSecondary
   };
 });
 

@@ -6,5 +6,4 @@ export * from './ButtonLink';
 export * from './ContentImage';
 export * from './ColorBgSpot';
 export * from './EducationBlock';
-
-
+export * from './InfoSquareBlock';
