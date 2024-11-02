@@ -16,26 +16,16 @@
 
 <script setup>
 import { toRefs } from 'vue';
-import { 
-  Helpers,
-} from '~/composables';
+import { Helpers } from '~/composables';
 
 import AboutSectionDesktop from './AboutSectionDesktop.vue';
 import AboutSectionMobile from './AboutSectionMobile.vue';
 
-const props = defineProps({
+defineProps({
   data: {
     type: Object,
     default: () => ({})
   },
-  // primaryColor: {
-  //   type: String,
-  //   default: '#2C6AA2',
-  // },
-  // secondaryColor: {
-  //   type: String,
-  //   default: '#FFBBB5',
-  // }
 });
 
 const WindowWidthComposable = Helpers.checkWindowWidth();

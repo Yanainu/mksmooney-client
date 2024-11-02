@@ -23,6 +23,9 @@
           theme="vocal"
           :blockData="block"
           minWidth="171px"
+          is-link
+          wrapper-height="333px"
+          width="25%"
         />
 
         <ColorBgSpot 
@@ -74,6 +77,8 @@ const {
   display: flex;
   gap: 20px;
   position: relative;
+  flex-basis: 1;
+  flex-grow: 1;
 
   &--mobile {
     flex-wrap: wrap;
@@ -82,6 +87,7 @@ const {
 
     .info-blocks__item {
       height: 220px;
+      width: 47%;
 
       &:nth-child(odd) {
         margin-top: 70px;

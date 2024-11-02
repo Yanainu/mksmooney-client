@@ -27,7 +27,11 @@ const VocalPageStore = defineStore('VocalPage', () => {
   }); 
 
   const workPlacesSectionData = computed(() => {
-    return vocalPageData?.value?.VocalWorkPlaces
+    return vocalPageData?.value?.VocalWorkPlaces;
+  })
+
+  const achievementsSectionData = computed(() => {
+    return vocalPageData?.value?.VocalAchievements;
   })
 
   return {
@@ -36,6 +40,7 @@ const VocalPageStore = defineStore('VocalPage', () => {
     aboutSectionData,
     educationSectionData,
     workPlacesSectionData,
+    achievementsSectionData
   };
 });
 

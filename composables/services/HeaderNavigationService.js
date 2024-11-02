@@ -17,21 +17,13 @@ const HeaderNavigationService = () => {
       return null;
     } finally {
       isLoading.value = false;
-      return null;
     }
   };
 
-  // const getHeaderNavigation = async () => {
-  //   const navigationData = await fetchHeaderNavigation();
-  //   headerNavigationData.value = result?.value?.data?.attributes;
-
-  // }
-  // getHeaderNavigation();
   fetchHeaderNavigation();
 
   return {
     fetchHeaderNavigation,
-    // getHeaderNavigation,
     isLoading,
     headerNavigationData,
   };
