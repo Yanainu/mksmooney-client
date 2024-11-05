@@ -1,11 +1,9 @@
 <template>
-  <div 
-    class="spot"
-    />
+  <div class="spot"/>
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   color: {
     type: String,
     default: 'var(--white)',

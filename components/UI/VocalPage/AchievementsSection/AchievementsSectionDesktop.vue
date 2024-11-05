@@ -12,6 +12,11 @@
         wrapperHeight="200px"
         width="30%"
       />
+      <ColorBgSpot 
+        class="info-blocks__left-spot"
+        :color="vocalPrimary"
+        :shadow-size="'140px'"
+      />
     </div>
 
     <div class="info-blocks__right-grid">
@@ -25,17 +30,24 @@
         width="100%"
         photo-fill-space
       />
+      <ColorBgSpot 
+        class="info-blocks__right-spot"
+        :color="vocalSecondary"
+        :shadow-size="'250px'"
+      />
     </div>
 
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, toRefs } from 'vue';
 import { CommonComponents } from '~/components/UI';
+import { Stores } from '~/composables'
 
 const { 
   InfoSquareBlock,
+  ColorBgSpot
 } = CommonComponents;
 
 const props = defineProps({
@@ -44,6 +56,12 @@ const props = defineProps({
     default: () =>({}),
   },
 });
+
+const ColorsStore = Stores.ColorsStore();
+const { 
+  vocalPrimary,
+  vocalSecondary
+} = toRefs(ColorsStore);
 
 const leftGridData = computed(() => {
   if (props.data?.length) {
@@ -75,10 +93,17 @@ const rightGridData = computed(() => {
   height: 640px;
   
   &__left-grid {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     width: 77%;
+
+    .info-blocks__left-spot {
+      position: absolute;
+      top: 250px;
+      left: 0;
+    }
 
     &__item {
       flex-grow: 1;
@@ -86,11 +111,24 @@ const rightGridData = computed(() => {
   }
 
   &__right-grid {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
     width: 23%;
+    height: 100%;
+
+    .info-blocks__right-spot {
+      position: absolute;
+      top: 200px;
+      right: 0;
+    }
+
+    .info-blocks__item:first-child {
+      margin-bottom: 20px;
+    }
+
+
   }
 }
 </style>

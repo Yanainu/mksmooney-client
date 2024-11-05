@@ -4,12 +4,6 @@
     :class="{ 'info-blocks--mobile': currentWidth < 800}"
     class="info-blocks">
 
-    <ColorBgSpot 
-      class="blocks-spot"
-      :color="vocalSecondary"
-      :shadow-size="'140px'"
-    />
-
     <InfoSquareBlock
       v-for="block in data?.InfoSquareBlocks"
       class="info-blocks__item"
@@ -56,7 +50,6 @@ const { currentWidth } = toRefs(WindowWidthComposable);
 const ColorsStore = Stores.ColorsStore();
 const { 
   vocalPrimary,
-  vocalSecondary
 } = toRefs(ColorsStore);
 
 </script>

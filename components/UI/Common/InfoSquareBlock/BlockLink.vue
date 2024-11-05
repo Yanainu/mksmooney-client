@@ -132,9 +132,6 @@ const handleHover = (value) => {
 
   @media (max-width: 800px) {
     height: auto;
-  }
-
-  @media (max-width: 800px) {
     padding: 13px;
   }
 
