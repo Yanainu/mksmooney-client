@@ -4,7 +4,7 @@
     class="info-block--is-photo"
     :style="{
       backgroundImage: `url(${getFormattedUrl(blockData?.photo)})`,
-      backgroundPosition: 'top',
+      backgroundPosition: imagePosition,
       backgroundSize: 'cover',
     }">
   </div>
@@ -30,6 +30,10 @@ const props = defineProps({
     type: String,
     default: 'vocal',
   },
+  imagePosition: {
+    type: String,
+    default: 'top',
+  }
 });
 
 const ColorsStore = Stores.ColorsStore();

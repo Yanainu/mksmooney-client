@@ -215,6 +215,7 @@ const handleHover = (value) => {
 
 .content-bottom {
   &__subtitle {
+    font-family: 'Lack';
     min-height: 83px;
     color: var(--dark-blue);
     margin-bottom: 10px;

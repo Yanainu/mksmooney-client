@@ -7,6 +7,7 @@
    <BlockPhoto 
       v-if="blockData?.isPhotoOnly"
       :theme="theme"
+      :image-position="photoPosition"
       :blockData="blockData"/>
 
     <BlockLink
@@ -52,6 +53,14 @@ defineProps({
   photoFillSpace: {
     type: Boolean,
     default: false,
+  },
+  mobileHeight: {
+    type: String,
+    default: '220px',
+  },
+  photoPosition: {
+    type: String,
+    default: 'top',
   }
 });
 
@@ -67,7 +76,7 @@ defineProps({
   }
 
   @media (max-width: 500px) {
-    min-height: 220px;
+    min-height: v-bind(mobileHeight);
   }
 }
 

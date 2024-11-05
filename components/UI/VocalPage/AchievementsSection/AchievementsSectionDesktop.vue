@@ -99,6 +99,10 @@ const rightGridData = computed(() => {
     gap: 20px;
     width: 77%;
 
+    @media (max-width: 950px) {
+      gap: 14px;
+    }
+
     .info-blocks__left-spot {
       position: absolute;
       top: 250px;

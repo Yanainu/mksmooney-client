@@ -83,6 +83,10 @@ const isEmpty = computed(() => {
     border: none;
     background: transparent;
   }
+
+  @media (max-width: 1100px) {
+    padding: 14px;
+  }
 }
 
 .content-top {
@@ -101,6 +105,7 @@ const isEmpty = computed(() => {
     text-wrap: wrap;
 
     @media (max-width: 1100px) {
+      letter-spacing: -0.05em;
       font-size: 20px;
     }
 
@@ -115,6 +120,9 @@ const isEmpty = computed(() => {
     color: var(--dark-blue);
     font-size: 14px;
 
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
   }
 
   &__right {
@@ -139,6 +147,7 @@ const isEmpty = computed(() => {
 
 .content-bottom {
   &__subtitle {
+    font-family: 'Lack';
     color: var(--dark-blue);
     font-size: 14px;
 

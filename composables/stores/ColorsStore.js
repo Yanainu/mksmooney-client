@@ -43,7 +43,7 @@ const ColorsStore = defineStore('Colors', () => {
   const getColors = async () => {
     const result = await fetchColors();
 
-    formatColors(result.value.data)
+    formatColors(result?.value?.data)
     Colors.value = [...result.value.data]
   }
   getColors();

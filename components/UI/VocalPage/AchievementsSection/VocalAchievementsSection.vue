@@ -15,7 +15,7 @@
       <AchievementsSectionMobile 
         v-else
         class="about-section-mode--mobile"
-        :data="data"
+        :data="data?.InfoSquareBlocks"
       />
     </template>
   </SectionTemplate>
