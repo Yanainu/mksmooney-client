@@ -7,12 +7,6 @@
         class="photo-left"
         :src="getFormattedUrl(sectionData?.data?.leftPhoto)"
       />
-
-      <!-- <ColorBgSpot 
-        class="left-content__spot"
-        :color="vocalSecondary"
-        :shadowSize="'150px'"
-      /> -->
     </div>
 
     <div class="about-section__title title">
@@ -61,11 +55,10 @@ import { Stores, Helpers } from '~/composables';
 
 const { 
   ButtonLink,
-  // ColorBgSpot,
   ContentImage
 } = CommonComponents;
 
-const props = defineProps({
+defineProps({
   sectionData: {
     type: Object,
     default: () =>({}),
@@ -75,11 +68,10 @@ const props = defineProps({
 const ColorsStore = Stores.ColorsStore();
 const { 
   vocalPrimary,
-  // vocalSecondary
 } = toRefs(ColorsStore);
 
-const PhotoURLComposable = Helpers.getPhotoUrl();
-const { getFormattedUrl } = PhotoURLComposable;
+const MediaURLComposable = Helpers.getMediaUrl();
+const { getFormattedUrl } = MediaURLComposable;
 
 </script>
   

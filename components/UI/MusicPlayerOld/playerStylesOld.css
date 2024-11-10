@@ -158,7 +158,7 @@ $anim_duration: 0.5s;
 				}
 			}
 		}
-		.albumImage {
+		/* .albumImage {
 			width: ($player_width)-($player_padding*2);
 			height: ($player_width)-($player_padding*2);
 			overflow: hidden;
@@ -172,7 +172,7 @@ $anim_duration: 0.5s;
 				object-position: 50% 50%;
 				border-radius:$player_border_radius;
 			}
-		}
+		} */
 		.playerButtons {
 			position: relative;
 			margin: 0 auto;

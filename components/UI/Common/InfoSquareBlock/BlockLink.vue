@@ -101,8 +101,8 @@ const {
   vocalLight, 
 } = toRefs(ColorsStore);
 
-const PhotoURLComposable = Helpers.getPhotoUrl();
-const { getFormattedUrl } = PhotoURLComposable;
+const MediaURLComposable = Helpers.getMediaUrl();
+const { getFormattedUrl } = MediaURLComposable;
 
 const themeColor = computed(() => {
   if (props.theme === 'vocal') {

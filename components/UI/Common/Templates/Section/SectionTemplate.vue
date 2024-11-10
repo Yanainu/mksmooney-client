@@ -38,6 +38,7 @@ import { Stores } from '~/composables';
     line-height: 42px;
     letter-spacing: -0.03em;
     margin-bottom: 40px;
+    text-transform: uppercase;
 
     @media (max-width: 600px) {
       padding-left: 0;

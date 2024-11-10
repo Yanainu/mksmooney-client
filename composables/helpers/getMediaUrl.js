@@ -1,5 +1,5 @@
 
-const getPhotoUrl = () => {
+const getMediaUrl = () => {
   const config = useRuntimeConfig();
 
   const getFormattedUrl = (imageDataObject) => {
@@ -12,4 +12,4 @@ const getPhotoUrl = () => {
   };
 }
 
-export default getPhotoUrl;
+export default getMediaUrl;

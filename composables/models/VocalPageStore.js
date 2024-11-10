@@ -34,13 +34,19 @@ const VocalPageStore = defineStore('VocalPage', () => {
     return vocalPageData?.value?.VocalAchievements;
   })
 
+  const playerSectionData = computed(() => {
+    return vocalPageData?.value?.VocalMedia;
+  })
+
+
   return {
     vocalPageData,
 
     aboutSectionData,
     educationSectionData,
     workPlacesSectionData,
-    achievementsSectionData
+    achievementsSectionData,
+    playerSectionData
   };
 });
 

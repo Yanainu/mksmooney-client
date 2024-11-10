@@ -99,8 +99,8 @@ const {
 const WindowWidthComposable = Helpers.checkWindowWidth();
 const { currentWidth } = toRefs(WindowWidthComposable);
 
-const PhotoURLComposable = Helpers.getPhotoUrl();
-const { getFormattedUrl } = PhotoURLComposable;
+const MediaURLComposable = Helpers.getMediaUrl();
+const { getFormattedUrl } = MediaURLComposable;
 
 </script>
   

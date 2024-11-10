@@ -17,6 +17,10 @@
         :data="achievementsSectionData"
       />
 
+      <VocalMediaSection 
+        :data="playerSectionData"
+      />
+
     </template>
   </PageTemplate>
 </template>
@@ -36,7 +40,8 @@ const {
   VocalAboutSection,
   VocalEducationSection,
   VocalWorkPlacesSection,
-  VocalAchievementsSection
+  VocalAchievementsSection,
+  VocalMediaSection
 } = VocalPageComponents;
 
 const PageModel = Models.VocalPageStore();
@@ -44,7 +49,8 @@ const {
   aboutSectionData,
   educationSectionData,
   workPlacesSectionData,
-  achievementsSectionData
+  achievementsSectionData,
+  playerSectionData
 } = storeToRefs(PageModel);
 
 </script>

@@ -23,7 +23,6 @@
       <div class="audioPlayerUI" :class="{'isDisabled': isPlaylistActive}">
         <div  class="albumImage">
           <transition name="ballmove" enter-active-class="animated zoomIn" leave-active-class="animated fadeOutDown" mode="out-in">
-            <!--<transition name="slide-fade" mode="out-in">-->
             <img @load="onImageLoaded()" :src="musicPlaylist[currentSong].image" :key="currentSong" ondragstart="return false;" id="playerAlbumArt">
           </transition>
           <div class="loader" :key="currentSong">Loading...</div>
