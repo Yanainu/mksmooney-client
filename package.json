@@ -262,6 +262,7 @@
     "magicast": "^0.3.2",
     "make-dir": "^3.1.0",
     "make-fetch-happen": "^13.0.0",
+    "markdown-it": "^14.1.0",
     "mdn-data": "^2.0.30",
     "merge-stream": "^2.0.0",
     "merge2": "^1.4.1",

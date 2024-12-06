@@ -20,8 +20,8 @@ const ColorsStore = defineStore('Colors', () => {
 
     let pagesList = [];
     fetchResult.forEach(item => {
-      if (!pagesList.includes(item.attributes.page)) {
-        pagesList.push(item.attributes.page);
+      if (!pagesList.includes(item.page)) {
+        pagesList.push(item.page);
       }
     })
 
@@ -32,8 +32,8 @@ const ColorsStore = defineStore('Colors', () => {
     fetchResult.forEach(item => {
       pagesList.forEach((currentPageName) => {
         //vocal
-        if (item.attributes.page === currentPageName) {
-          formattedColors.value[currentPageName][item.attributes.priority] = item.attributes.colorValue;
+        if (item.page === currentPageName) {
+          formattedColors.value[currentPageName][item.priority] = item.colorValue;
         }
       })
       
@@ -42,7 +42,6 @@ const ColorsStore = defineStore('Colors', () => {
 
   const getColors = async () => {
     const result = await fetchColors();
-
     formatColors(result?.value?.data)
     Colors.value = [...result.value.data]
   }

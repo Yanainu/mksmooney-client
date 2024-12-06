@@ -28,6 +28,10 @@ const {
   height: 100vh;
   padding: 40px 50px;
 
+  &__content {
+    padding-bottom: 500px !important;
+
+  }
   @media (max-width: 750px) {
     padding: 30px;
   }
