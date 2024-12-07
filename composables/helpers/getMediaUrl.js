@@ -3,7 +3,7 @@ const getMediaUrl = () => {
   const config = useRuntimeConfig();
 
   const getFormattedUrl = (imageDataObject) => {
-    const url = imageDataObject?.data?.attributes?.url;
+    const url = imageDataObject?.url;
     return `${config.public.baseURL}${url}`;
   }
 

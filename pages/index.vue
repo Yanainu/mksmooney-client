@@ -2,7 +2,7 @@
   <PageTemplate>
     <template #pageContent>
       <VocalAboutSection 
-        :data="aboutSectionData"
+        :section-data="aboutSectionData"
       />
 
       <VocalEducationSection 

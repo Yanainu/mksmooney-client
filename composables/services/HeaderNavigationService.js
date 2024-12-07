@@ -9,8 +9,8 @@ const HeaderNavigationService = () => {
     isLoading.value = true;
 
     try {
-      const result = await FetchData('header-navigation');
-      headerNavigationData.value = result?.value?.data?.attributes;
+      const result = await FetchData('header-navigation?customPopulate=nested');
+      headerNavigationData.value = result?.value?.data;
       return result;
     } catch (err) {
       console.error(err);

@@ -9,9 +9,9 @@ const GetVocalPageService = () => {
     isLoading.value = true;
 
     try {
-      const result = await FetchData('vocal-page');
-      vocalPageData.value = result?.value?.data;
-      return result;
+      const result = await FetchData('vocal-page?customPopulate=nested');
+      vocalPageData.value = result.value.data;
+      return result.value.data;
     } catch (err) {
       console.error(err);
       return null;

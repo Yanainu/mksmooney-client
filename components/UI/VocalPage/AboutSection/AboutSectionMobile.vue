@@ -5,7 +5,7 @@
       <ContentImage 
         width="100%"
         class="photo-left"
-        :src="getFormattedUrl(sectionData?.data?.leftPhoto)"
+        :src="getFormattedUrl(sectionData?.leftPhoto)"
       />
     </div>
 
@@ -13,7 +13,7 @@
       <div class="title--is-primary primary">
         {{  sectionData?.data?.title }} 
         <span class="primary__dark">
-          {{ sectionData?.data?.titleMainWord }}
+          {{ sectionData?.titleMainWord }}
         </span>
       </div>
     </div>
@@ -22,26 +22,26 @@
       <ContentImage 
         width="100%"
         class="photo-left"
-        :src="getFormattedUrl(sectionData?.data?.rightPhoto)"
+        :src="getFormattedUrl(sectionData?.rightPhoto)"
       />
     </div>
 
     <div class="about-section__description description">
-      {{ sectionData?.data?.description }}
+      {{ sectionData?.description }}
 
       <nuxt-link 
         class="description__link" 
-        :to="sectionData?.data?.descriptionLinkURL"
+        :to="sectionData?.descriptionLinkURL"
         target="_blank"
         >
-        {{ sectionData?.data?.descriptionLink }}
+        {{ sectionData?.descriptionLink }}
       </nuxt-link>
     </div>
 
     <div class="about-section__button-link">
       <ButtonLink
-        :text="sectionData?.data?.buttonText"
-        :link="sectionData?.data?.buttonLink"
+        :text="sectionData?.buttonText"
+        :link="sectionData?.buttonLink"
         :color="vocalPrimary"
       />
     </div>

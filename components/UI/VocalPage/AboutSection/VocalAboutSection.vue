@@ -3,13 +3,13 @@
     <AboutSectionDesktop 
       v-if="currentWidth > 600"
       class="about-section-mode--desktop"
-      :section-data="data"
+      :section-data="sectionData"
     />
 
     <AboutSectionMobile 
       v-else
       class="about-section-mode--mobile"
-      :section-data="data"
+      :section-data="sectionData"
     />
   </div>
 </template>
@@ -22,7 +22,7 @@ import AboutSectionDesktop from './AboutSectionDesktop.vue';
 import AboutSectionMobile from './AboutSectionMobile.vue';
 
 defineProps({
-  data: {
+  sectionData: {
     type: Object,
     default: () => ({})
   },
