@@ -11,8 +11,7 @@ const GetFeedbacksService = () => {
 
     try {
       const result = await FetchData('feedbacks');
-      console.log('fetch feedbacks res', result);
-      feedbacksData.value = result?.value?.data?.attributes;
+      feedbacksData.value = result?.value?.data;
       return result;
     } catch (err) {
       console.error(err);

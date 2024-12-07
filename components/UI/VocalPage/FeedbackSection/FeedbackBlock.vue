@@ -8,13 +8,12 @@
       {{ author }}
     </div>
   
-    <div class="feedback-block__description">
-      {{ text }}
-    </div>
+    <div class="feedback-block__description" v-html="text" /> 
   </div>
 </template>
 
 <script setup>
+
 const props = defineProps({
   blockData: {
     type: Object,
@@ -22,9 +21,9 @@ const props = defineProps({
   },
 });
 
-const text = computed(() => props.blockData?.attributes?.text_markdown);
-const author = computed(() => props.blockData?.attributes?.author);
-const isPublished = computed(() => props.blockData?.attributes?.publish);
+const text = computed(() => props.blockData?.feedbackText);
+const author = computed(() => props.blockData?.author);
+const isPublished = computed(() => props.blockData?.publish);
 
 </script>
 
@@ -35,6 +34,7 @@ const isPublished = computed(() => props.blockData?.attributes?.publish);
   border-radius: 20px;
   width: 60%;
   margin-bottom: 20px;
+  background: white;
 
 
   @media (max-width: 1050px) {
