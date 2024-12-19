@@ -1,27 +1,43 @@
 <template>
   <div class="navigation">
-    <div class="navigation-icons">
+    <div v-if="navigationType === 'header'" class="navigation-icons">
       <nuxt-icon 
-        class="navigation-icons--bg"
-        name="menu-back" 
+        class="navigation-icons-header--bg"
+        name="menu-back--header" 
         />
 
       <nuxt-icon 
-        class="navigation-icons--logo"
+        class="navigation-icons-header--logo"
         name="menu-logo" 
         />
     </div>
 
-    <div class="navigation-links">
+    <div v-if="navigationType === 'footer'" class="navigation-icons">
+      <nuxt-icon 
+        class="navigation-icons-footer--bg"
+        name="menu-back--footer" 
+        />
+
+      <nuxt-icon 
+        class="navigation-icons-footer--logo"
+        name="menu-logo" 
+        />
+    </div>
+
+    <div 
+      class="navigation-links"
+      :class="`navigation-links--mode-${navigationType}`"
+    >
       <div
-        v-for="navigationItem in headerNavigationItems"
-        :key="navigationItem?.id" 
+        v-for="item in navigationItems"
+        :key="item?.id" 
         class="navigation-links__item" >
 
         <NavigationItem
-          :title="navigationItem?.title"
-          :dropdown="navigationItem?.dropdown"
-          :link="navigationItem?.link"
+          :title="item?.title"
+          :dropdown="item?.dropdown"
+          :link="item?.link"
+          :isNewTab="navigationType === 'footer'"
         />
       </div>        
     </div>
@@ -34,29 +50,28 @@ import {
   toRefs
 } from 'vue';
 
-import { 
-  Stores,
-  Services,
-} from '~/composables';
+import { Stores } from '~/composables';
 
-import NavigationItem from './NavigationItem.vue';
+import NavigationItem from './NavigationItem';
 
 const props = defineProps({
   currentPage: {
     type: String,
     default: 'vocal',
   },
+  navigationType: { // header/footer
+    type: String,
+    default: 'header'
+  },
+  navigationData: {
+    type: Object,
+    default: () => ({})
+  }
 });
 
-// fetch
-const HeaderNavigation = Services.HeaderNavigationService();
-const { 
-  headerNavigationData,
-} = toRefs(HeaderNavigation)
-
-const headerNavigationItems = computed(() => {
-  if (headerNavigationData.value) {
-    return headerNavigationData?.value.NavigationItem;
+const navigationItems = computed(() => {
+  if (props.navigationData) {
+    return props.navigationData?.NavigationItem;
   }
   return [];
 })
@@ -67,7 +82,6 @@ const {
 } = toRefs(ColorsStore);
 
 const menuBgColor = computed(() => {
-  console.log('formattedColors.value', formattedColors.value, 'props.currentPage', props.currentPage)
   if (formattedColors.value) {
     return formattedColors.value[props.currentPage]?.primary;
   }
@@ -96,8 +110,17 @@ const menuLogoColor = computed(() => {
     display: flex;
     gap: 50px;
     position: absolute;
-    right: 100px;
     top: 12px;
+
+    &--mode {
+      &-header {
+        right: 100px;
+      }
+
+      &-footer {
+        left: 100px;
+      }
+    }
 
     @media (max-width: 900px) {
       gap: 30px;
@@ -111,7 +134,7 @@ const menuLogoColor = computed(() => {
     }
   }
 
-  &-icons {
+  &-icons-header {
     position: sticky;
     
     @media (max-width: 900px) {
@@ -126,6 +149,24 @@ const menuLogoColor = computed(() => {
     &--logo {
       position: absolute;
       left: 61px;
+      top: -20px;
+      color: v-bind(menuLogoColor);
+    }
+  }
+
+  &-icons-footer {    
+    @media (max-width: 900px) {
+      transform: scale(0.8);
+    }
+
+    &--bg {
+      display: inline-block;
+      color: v-bind(menuBgColor);
+    }
+
+    &--logo {
+      position: absolute;
+      right: 61px;
       top: -20px;
       color: v-bind(menuLogoColor);
     }

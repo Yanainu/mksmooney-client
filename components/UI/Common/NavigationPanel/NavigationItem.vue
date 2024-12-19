@@ -1,6 +1,19 @@
 <template>
   <div class="navigation-item">
-    <nuxt-link class="navigation-item__link" :to="link">
+    <nuxt-link 
+      v-if="isNewTab"
+      class="navigation-item__link" 
+      :to="link" 
+      target="_blank"
+    >
+      {{ title }} 
+    </nuxt-link>
+
+    <nuxt-link 
+      v-else
+      class="navigation-item__link" 
+      :to="link" 
+    >
       {{ title }} 
     </nuxt-link>
   </div>
@@ -8,7 +21,7 @@
 
 <script setup>
 
-const props = defineProps({
+ defineProps({
   title: {
     type: String,
     default: '',
@@ -17,6 +30,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  isNewTab: {
+    type: Boolean,
+    default: false,
+  }
 });
 </script>
 
@@ -29,15 +46,7 @@ const props = defineProps({
     color: var(--white);
     font-size: 12px;
     text-decoration: none;
-
-    /* &:hover {
-      color: var(--violet-light);
-      border-radius: 4px;
-    } */
-
+    text-transform: uppercase;
   }
 }
-
-
-
 </style>

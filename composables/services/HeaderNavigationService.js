@@ -20,8 +20,6 @@ const HeaderNavigationService = () => {
     }
   };
 
-  fetchHeaderNavigation();
-
   return {
     fetchHeaderNavigation,
     isLoading,

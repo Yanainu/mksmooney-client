@@ -1,16 +1,16 @@
 <template>
   <div class="page">
-    <div class="page__header">
-      <CommonHeader />
-    </div>
+    <CommonHeader 
+      :currentPage="currentPage"
+    />
 
     <div class="page__content">
       <slot name="pageContent" />
     </div>
 
-    <!-- <div class="page__footer">
-      <Footer />
-    </div> -->
+    <CommonFooter 
+      :currentPage="currentPage"
+    />
   </div>
 </template>
 
@@ -19,17 +19,23 @@ import { CommonComponents } from '@/components';
 
 const { 
   CommonHeader,
-  Footer
+  CommonFooter
  } = CommonComponents;
+
+ defineProps({
+  currentPage: {
+    type: String,
+    default: 'vocal',
+  },
+});
 </script>
 
 <style lang="postcss">
 .page {
-  height: 100vh;
   padding: 40px 50px;
 
   &__content {
-    padding-bottom: 500px !important;
+    padding-bottom: 135px;
 
   }
   @media (max-width: 750px) {

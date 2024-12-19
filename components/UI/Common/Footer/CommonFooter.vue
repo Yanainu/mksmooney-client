@@ -1,26 +1,27 @@
 <template>
-  <div class="header">
+  <footer class="footer">
     <NavigationPanelDesktop
       v-if="currentWidth > 600"
-      :navigationData="headerNavigationData"
+      :navigationData="footerNavigationData"
       :currentPage="currentPage"
-      class="header__navigation--desktop"
-      navigationType="header"
+      navigationType="footer"
+      class="footer__navigation--desktop"
     />
 
     <NavigationPanelMobile 
       v-else
-      :navigationData="headerNavigationData"
+      :navigationData="footerNavigationData"
       :currentPage="currentPage"
-      class="header__navigation--mobile"
-      navigationType="header"
+      navigationType="footer"
+      class="footer__navigation--mobile"
     />
-  </div>
+  </footer>
 </template>
 
 <script setup>
 import { toRefs } from 'vue';
 import { storeToRefs } from 'pinia';
+
 import { 
   Helpers,
   Models
@@ -44,12 +45,12 @@ const WindowWidthComposable = Helpers.checkWindowWidth();
 const { currentWidth } = toRefs(WindowWidthComposable);
 
 const NavigationStore = Models.NavigationStore();
-const { headerNavigationData } = storeToRefs(NavigationStore)
+const { footerNavigationData } = storeToRefs(NavigationStore)
 
 </script>
   
 <style lang="postcss" scoped>
-.header {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
