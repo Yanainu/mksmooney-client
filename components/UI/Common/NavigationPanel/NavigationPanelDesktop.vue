@@ -106,6 +106,12 @@ const menuLogoColor = computed(() => {
 .navigation {
   position: relative;
 
+  &-icons {
+    @media (max-width: 850px) {
+      transform: scale(0.9);
+    }
+  }
+
   &-links {
     display: flex;
     gap: 50px;
@@ -122,7 +128,7 @@ const menuLogoColor = computed(() => {
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 850px) {
       gap: 30px;
       right: 170px;
     }
@@ -137,10 +143,6 @@ const menuLogoColor = computed(() => {
   &-icons-header {
     position: sticky;
     
-    @media (max-width: 900px) {
-      transform: scale(0.8);
-    }
-
     &--bg {
       display: inline-block;
       color: v-bind(menuBgColor);
@@ -155,10 +157,6 @@ const menuLogoColor = computed(() => {
   }
 
   &-icons-footer {    
-    @media (max-width: 900px) {
-      transform: scale(0.8);
-    }
-
     &--bg {
       display: inline-block;
       color: v-bind(menuBgColor);

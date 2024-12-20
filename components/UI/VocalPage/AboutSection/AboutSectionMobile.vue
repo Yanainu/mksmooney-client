@@ -11,7 +11,7 @@
 
     <div class="about-section__title title">
       <div class="title--is-primary primary">
-        {{  sectionData?.data?.title }} 
+        {{  sectionData?.title }} 
         <span class="primary__dark">
           {{ sectionData?.titleMainWord }}
         </span>

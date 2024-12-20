@@ -2,30 +2,24 @@
 <template>
   <div class="section about-section">
     <div class="about-section__left-content left-content">
-      <div class="left-content__photo">
-        <ContentImage 
-          width="100%"
-          class="photo-left"
-          :src="getFormattedUrl(sectionData?.leftPhoto)"
-        />
-      </div>
+      <div class="left-content__top">
+        <div class="left-content__top-photo">
+          <ContentImage 
+            width="100%"
+            class="photo-left"
+            :src="getFormattedUrl(sectionData?.leftPhoto)"
+          />
+        </div>
 
-      <ColorBgSpot 
-        class="left-content__spot"
-        :color="vocalSecondary"
-        :shadow-size="'150px'"
-      />
-
-      <div class="left-content__main left-main">
-        <div class="left-main__text">
-          <div class="left-main__text--is-primary primary">
-            {{  sectionData?.data?.title }} 
+        <div class="left-content__top-text">
+          <div class="left-content__top-text--is-primary primary">
+            {{  sectionData?.title }} 
             <span class="primary__dark">
               {{ sectionData?.titleMainWord }}
             </span>
           </div>
 
-          <div class="left-main__text--is-secondary secondary">
+          <div class="left-content__top-text--is-secondary secondary">
             {{  sectionData?.description }}
 
             <nuxt-link 
@@ -37,8 +31,12 @@
             </nuxt-link>
           </div>
         </div>
+      </div>
 
-        <div class="left-main__button">          
+      <div class="left-content__bottom">
+        <div class="left-content__bottom-empty" />
+        
+        <div class="left-content__bottom-button">
           <ButtonLink
             :text="sectionData?.buttonText"
             :link="sectionData?.buttonLink"
@@ -46,13 +44,19 @@
           />
         </div>
       </div>
+
+      <ColorBgSpot 
+        class="left-content__spot"
+        :color="vocalSecondary"
+        :shadow-size="'150px'"
+      />
     </div>
         
     <div 
       v-if="currentWidth >= 730"
       class="about-section__right about-right">
       <ContentImage 
-        class="about-right__photo"
+        class="photo-right"
         :src="getFormattedUrl(sectionData?.rightPhoto)"
       />
     </div> 
@@ -114,7 +118,6 @@ const { getFormattedUrl } = MediaURLComposable;
 
   &__left-content {
     display: flex;
-    /* justify-content: space-between; */
     gap: 17px;
   }
 }
@@ -129,10 +132,6 @@ const { getFormattedUrl } = MediaURLComposable;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-
-  &__photo {
-
-  }
 
   &__spot {
     &--primary {
@@ -152,6 +151,79 @@ const { getFormattedUrl } = MediaURLComposable;
 .left-content {
   width: 65%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__top {
+    display: flex;
+    gap: 17px;
+
+    &-photo {
+      min-width: 120px;
+      width: 11%;
+    }
+
+    &-text {
+      width: 543px;
+      font-family: 'Gilroy';
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    
+      &--is {
+        &-primary {
+          font-weight: 800;
+          font-size: 70px;
+          color: var(--light-blue);
+          letter-spacing: -4px;
+
+          animation: fadeIn 1.5s;
+
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+          }
+
+          @media (max-width: 900px) {
+            font-size: 56px;
+          }
+
+          .primary__dark {
+            color: v-bind(vocalPrimary);
+          }
+        }
+
+        &-secondary {
+          color: var(--dark-blue);
+          font-weight: 400;
+          font-size: 18px;
+          width: 100%;
+          max-width: 440px;
+
+          .secondary__light {
+            color: var(--light-blue);
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    gap: 17px;
+    align-items: flex-end;
+    height: 174px;
+
+    &-empty {
+      min-width: 120px;
+      width: 11%;
+    }
+
+    &-button {
+
+    }
+  }
 
   &__spot {
     position: absolute;
@@ -159,50 +231,23 @@ const { getFormattedUrl } = MediaURLComposable;
     left: -100px;
   }
 
-  &__photo {
-    min-width: 120px;
-    width: 11%;
+}
+
+.photo-left {
+  animation: fadeIn 1.8s;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 }
 
-.left-main {
-  font-family: 'Gilroy';
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.photo-right {
+  animation: fadeIn 2.1s;
 
-  &__text {
-    width: 543px;
-    
-    &--is {
-      &-primary {
-        font-weight: 800;
-        font-size: 70px;
-        color: var(--light-blue);
-        letter-spacing: -4px;
-
-        @media (max-width: 900px) {
-          font-size: 56px;
-        }
-
-        .primary__dark {
-          color: v-bind(vocalPrimary);
-        }
-      }
-
-      &-secondary {
-        color: var(--dark-blue);
-        font-weight: 400;
-        font-size: 18px;
-        width: 100%;
-        max-width: 440px;
-
-        .secondary__light {
-          color: var(--light-blue);
-          text-decoration: none;
-        }
-      }
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 }
 </style>

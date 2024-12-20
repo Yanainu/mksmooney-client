@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <NavigationPanelDesktop
-      v-if="currentWidth > 600"
+      v-if="currentWidth > 700"
       :navigationData="headerNavigationData"
       :currentPage="currentPage"
       class="header__navigation--desktop"

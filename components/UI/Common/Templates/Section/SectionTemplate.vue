@@ -40,6 +40,13 @@ import { Stores } from '~/composables';
     margin-bottom: 40px;
     text-transform: uppercase;
 
+    animation: fadeIn 1s;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
     @media (max-width: 600px) {
       padding-left: 0;
       text-align: center;

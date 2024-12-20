@@ -36,12 +36,11 @@ const isPublished = computed(() => props.blockData?.publish);
   margin-bottom: 20px;
   background: white;
 
-
   @media (max-width: 1050px) {
     width: 70%;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     width: 100%;
   }
 

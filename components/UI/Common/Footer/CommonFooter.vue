@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <NavigationPanelDesktop
-      v-if="currentWidth > 600"
+      v-if="currentWidth > 700"
       :navigationData="footerNavigationData"
       :currentPage="currentPage"
       navigationType="footer"

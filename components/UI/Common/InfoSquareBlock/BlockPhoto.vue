@@ -66,6 +66,13 @@ const themeColor = computed(() => {
       border-radius: 20px;
       overflow: hidden;
       border: none;
+
+      animation: fadeIn 1.3s;
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
     }
   }
 
